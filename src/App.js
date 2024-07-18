@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import {createStore} from 'redux';
 import './App.css';
+import apfel from './Components/apfel';
+
+
+let intialState ={
+  apfel:0
+};
+
+const apfelReducer = (state = initialState, action)=>
+{
+  switch(action.type){
+    case "add":
+      return {apfel: state.apfel +1 }
+    case "loscht":
+      return {apfel:state.apfel -1 }
+    default:
+      return state
+  }
+
+
+}
+
+console.log(Store)
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <apfel/>
     </div>
   );
 }
